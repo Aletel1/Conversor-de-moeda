@@ -2,14 +2,14 @@ from flask import Flask
 from flask import jsonify
 from flask import request
 
-app = Flask(_name_)
+app = Flask(__name__)
 
 conv_Din = [
  {
 #valores de quando eu escrevi esse codigo
  'real':'1',
- 'dolar':'0,19',
- 'euro':'0,20'
+ 'dolar':'5,34',
+ 'euro':'5,33'
  }
  ]
 
@@ -29,5 +29,5 @@ def getVal(VALOR):
     ]
     return jsonify({'Valores':conv})
 
-if _name_ == "_main_":
+if __name__ == "__main__":
     app.run()
