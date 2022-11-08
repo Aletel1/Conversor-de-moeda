@@ -14,11 +14,11 @@ conv_Din = [
  ]
 
 #A URL deverá ser <http://nome_da_maquina.dominio/convertemoeda/<VALOR>
-@app.route('/convertemoeda',methods=['GET'])
 @app.route("/")
 def hello():
     return "Nenhum valor informado"
-
+ 
+@app.route('/convertemoeda',methods=['GET'])
 def getAllEmp():
     return jsonify({'Valores':conv_Din})
 
