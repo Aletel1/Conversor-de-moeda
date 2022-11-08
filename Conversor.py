@@ -2,19 +2,23 @@ from flask import Flask
 from flask import jsonify
 from flask import request
 
-app = Flask(_name_)
+app = Flask(__name__)
 
 conv_Din = [
  {
 #valores de quando eu escrevi esse codigo
  'real':'1',
  'dolar':'0,19',
- 'euro':'0,20'
+ 'euro':'0,19'
  }
  ]
 
 #A URL deverá ser <http://nome_da_maquina.dominio/convertemoeda/<VALOR>
 @app.route('/convertemoeda',methods=['GET'])
+@app.route("/")
+def hello():
+    return "Nenhum valor informado"
+
 def getAllEmp():
     return jsonify({'Valores':conv_Din})
 
@@ -24,10 +28,10 @@ def getVal(VALOR):
         {
             'real': VALOR,
             'dolar': (int(VALOR) * 0.19),
-            'euro': (int(VALOR) * 0.20)
+            'euro': (int(VALOR) * 0.19)
         }
     ]
     return jsonify({'Valores':conv})
 
-if _name_ == "_main_":
+if __name__ == "__main__":
     app.run()
